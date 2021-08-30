@@ -1,0 +1,8 @@
+{
+   "table":"Users",
+   "query":"insertOne",
+   "record":{
+      "name":"Hello",
+      "lname":"World!"
+   }
+}

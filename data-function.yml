@@ -1,0 +1,12 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://127.0.0.1:8080
+functions:
+  data-function:
+    lang: node14
+    handler: ./src
+    image: apimate/data-function:0.1.0
+    environment:
+      mongoconnect: mongodb://root:ngPl12FcHt@mongodb.default.svc.cluster.local:27017
+
