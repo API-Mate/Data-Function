@@ -75,6 +75,8 @@ async function HandleRequest(db, req) {
     const table = req.table;
     const record = req.record;
     const query = req.query;
+    if(record && record._id) record._id = ObjectId(record._id);
+    
     let ret = "Query Started"
     switch (query) {
       case "insertOne":
@@ -93,7 +95,8 @@ async function HandleRequest(db, req) {
         ret = db.collection(table).find(record);
         break;
       case "updateOne":
-        ret = db.collection(table).updateOne(record);
+        console.log(req.changes);
+        ret = db.collection(table).updateOne(record, req.changes);
         break;
       case "findOne":
         ret = db.collection(table).findOne(record);
