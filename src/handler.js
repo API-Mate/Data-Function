@@ -75,8 +75,8 @@ async function HandleRequest(db, req) {
     const table = req.table;
     const record = req.record;
     const query = req.query;
-    if(record && record._id) record._id = ObjectId(record._id);
-    
+    if (record && record._id) record._id = ObjectId(record._id);
+
     let ret = "Query Started"
     switch (query) {
       case "insertOne":
@@ -88,18 +88,18 @@ async function HandleRequest(db, req) {
       case "findById":
         ret = db.collection(table).findOne({ _id: new ObjectId(record) });
         break;
+      case "findOne":
+        ret = db.collection(table).findOne(record);
+        break;
       case "findAll":
         ret = db.collection(table).find({}).toArray();
         break;
       case "find":
-        ret = db.collection(table).find(record);
+        ret = db.collection(table).find(record).toArray();
         break;
       case "updateOne":
         console.log(req.changes);
         ret = db.collection(table).updateOne(record, req.changes);
-        break;
-      case "findOne":
-        ret = db.collection(table).findOne(record);
         break;
       // case "updateMany":
       //   ret = db.collection(table).updateMany(record);

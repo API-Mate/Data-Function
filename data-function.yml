@@ -6,7 +6,7 @@ functions:
   data-function:
     lang: node14
     handler: ./src
-    image: apimate/data-function:0.1.10
+    image: apimate/data-function:1.0.0
     environment:
       mongoconnect: mongodb://root:ngPl12FcHt@mongodb.default.svc.cluster.local:27017
       JWT_TOKEN_KEY: apimate-jwt-tokenkey-usPFBZER4mJ9vhWabdQ0
