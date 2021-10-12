@@ -6,7 +6,11 @@ functions:
   data-function:
     lang: node14
     handler: ./src
-    image: apimate/data-function:1.0.0
+    image: apimate/data-function:1.0.4
+    labels:
+      com.openfaas.scale.min: 1
+      com.openfaas.scale.max: 20
+      com.openfaas.scale.factor: 20
     environment:
       mongoconnect: mongodb://root:ngPl12FcHt@mongodb.default.svc.cluster.local:27017
       JWT_TOKEN_KEY: apimate-jwt-tokenkey-usPFBZER4mJ9vhWabdQ0
